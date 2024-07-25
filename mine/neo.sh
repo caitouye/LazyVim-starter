@@ -3,7 +3,7 @@
 BasePath=$(dirname $(readlink -f ${BASH_SOURCE:-$0}))
 #--------------------------------
 # python 3
-#source "$HOME/.pyenv/pyenv-win/versions/nvim/scripts/activate"
+. "${BasePath}/pynvim/bin/activate"
 #--------------------------------
 
 if [ -z "$1" ]; then
@@ -32,24 +32,4 @@ if [ "$2" == "create" ]; then
 fi
 
 nvim
-exit 0
 
-
-Neovim="$BasePath/nvim$Branch/bin/nvim.exe"
-if [ ! -f "$Neovim" ]; then
-    Neovim="$BasePath/nvim1/bin/nvim.exe"
-fi
-Terminal="$BasePath/neovide$Branch/neovide.exe"
-if [ ! -f "$Terminal" ]; then
-    Terminal="$BasePath/neovide1/neovide.exe"
-fi
-Option="--neovim-bin"
-if [ "$2" == "fvim" ]; then
-    Terminal="$BasePath/fvim$Branch/FVim.exe"
-    if [ ! -f "$Terminal" ]; then
-        Terminal="$BasePath/fvim1/FVim.exe"
-    fi
-    Option="--nvim"
-fi
-
-"$Terminal" "$Option" "$Neovim"

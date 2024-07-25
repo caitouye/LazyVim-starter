@@ -5,7 +5,7 @@ set BasePath=%~dp0
 set BasePath=%BasePath:~0,-1%
 ::#--------------------------------
 :: python 3
-call "%USERPROFILE%\.pyenv\pyenv-win\versions\nvim\scripts\activate.bat"
+call "%BasePath%\pynvim\Scripts\activate.bat"
 ::#--------------------------------
 
 if [%1] == [] (
