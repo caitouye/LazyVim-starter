@@ -10,7 +10,7 @@ call "%BasePath%\pynvim\Scripts\activate.bat"
 ::#--------------------------------
 
 if [%1] == [] (
-	echo Need args: branch_no [create, fvim, remote]
+	echo Need args: branch_no [create, fvim, server, client]
 	pause
 	goto :eof
 )
@@ -47,10 +47,21 @@ if [%2] == [fvim] (
 	set Option=--nvim
 )
 
-if [%2] == [remote] (
-	start "title" %Terminal% --server=localhost:61001
+
+set Port=50001
+
+if [%2] == [server] (
+	%Neovim% --headless --listen 0.0.0.0:%Port%
+	pause
 	goto :eof
 )
 
+if [%2] == [client] (
+	start "title" %Terminal% --server=localhost:%Port%
+	goto :eof
+)
+
+
 start "title" %Terminal% %Option% %Neovim%
+
 

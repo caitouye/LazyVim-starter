@@ -7,7 +7,7 @@ BasePath=$(dirname $(readlink -f ${BASH_SOURCE:-$0}))
 #--------------------------------
 
 if [ -z "$1" ]; then
-    echo "Need args: branch_no [create,fvim]"
+    echo "Need args: branch_no [create, server, client]"
     exit 1
 fi
 
@@ -31,6 +31,23 @@ if [ "$2" == "create" ]; then
     exit 0
 fi
 
+
+Port=50001
+
+if [ "$2" == "server" ]; then
+	shift 2
+	nvim --headless --listen 0.0.0.0:$Port "$@"
+	exit 0
+fi
+
+if [ "$2" == "client" ]; then
+	shift 2
+	nvim --remote-ui --server localhost:$Port "$@"
+	exit 0
+fi
+
+
 shift 1
 nvim "$@"
+
 
