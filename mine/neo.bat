@@ -51,7 +51,7 @@ if [%2] == [fvim] (
 set Port=50001
 
 if [%2] == [server] (
-	%Neovim% --headless --listen 0.0.0.0:%Port%
+	%Neovim% --headless --listen 127.0.0.1:%Port%
 	pause
 	goto :eof
 )

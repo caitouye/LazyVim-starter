@@ -36,7 +36,7 @@ Port=50001
 
 if [ "$2" == "server" ]; then
 	shift 2
-	nvim --headless --listen 0.0.0.0:$Port "$@"
+	nvim --headless --listen 127.0.0.1:$Port "$@"
 	exit 0
 fi
 
