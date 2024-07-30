@@ -31,5 +31,6 @@ if [ "$2" == "create" ]; then
     exit 0
 fi
 
-nvim
+shift 1
+nvim "$@"
 

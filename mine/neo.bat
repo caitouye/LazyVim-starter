@@ -1,4 +1,5 @@
 @echo off
+setlocal EnableDelayedExpansion
 ::#--------------------------------
 :: script path
 set BasePath=%~dp0
@@ -9,7 +10,7 @@ call "%BasePath%\pynvim\Scripts\activate.bat"
 ::#--------------------------------
 
 if [%1] == [] (
-	echo Need args: branch_no [create,fvim]
+	echo Need args: branch_no [create, fvim, remote]
 	pause
 	goto :eof
 )
@@ -44,6 +45,11 @@ if [%2] == [fvim] (
 	set Terminal=%BasePath%\fvim%Branch%\FVim.exe
 	if not exist "%Terminal%" ( set Terminal=%BasePath%\fvim1\FVim.exe )
 	set Option=--nvim
+)
+
+if [%2] == [remote] (
+	start "title" %Terminal% --server=localhost:61001
+	goto :eof
 )
 
 start "title" %Terminal% %Option% %Neovim%
