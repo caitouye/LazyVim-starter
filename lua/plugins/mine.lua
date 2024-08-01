@@ -16,6 +16,11 @@ return {
 		}}
 	},
 
+	{
+		"sindrets/diffview.nvim",
+		event = "VeryLazy",
+	},
+
 	-- {
 	-- 	"yamatsum/nvim-cursorline",
 	-- 	opts = {
