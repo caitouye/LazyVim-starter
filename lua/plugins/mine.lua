@@ -1,5 +1,13 @@
 return {
 
+	-- kevinhwang91/nvim-bqf
+	-- smoka7/multicursors.nvim
+	-- NvChad/nvim-colorizer.lua
+	-- uiofgh/rsync.nvim
+	-- uiofgh/dashboard-nvim
+	-- natecraddock/workspaces.nvim
+	-- nvim-neorg/neorg
+
 	{
 		"rainzm/flash-zh.nvim",
 		event = "VeryLazy",
@@ -15,10 +23,21 @@ return {
 			desc = "Flash between Chinese"
 		}}
 	},
+	{
+		"folke/flash.nvim",
+		keys = {
+			-- disable the default flash keymap
+			{ "s", mode = { "n", "x", "o" }, false },
+		},
+	},
 
 	{
 		"sindrets/diffview.nvim",
 		event = "VeryLazy",
+	},
+
+	{
+		"mhinz/vim-signify",
 	},
 
 	-- {

@@ -44,3 +44,11 @@ else
 	}
 end
 
+
+vim.filetype.add({
+	extension = {
+		pto = "lua",
+		tbl = "lua",
+	},
+})
+
