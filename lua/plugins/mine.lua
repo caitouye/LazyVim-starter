@@ -2,11 +2,20 @@ return {
 
 	-- kevinhwang91/nvim-bqf
 	-- smoka7/multicursors.nvim
-	-- NvChad/nvim-colorizer.lua
 	-- uiofgh/rsync.nvim
 	-- uiofgh/dashboard-nvim
 	-- natecraddock/workspaces.nvim
 	-- nvim-neorg/neorg
+	-- kevinhwang91/nvim-ufo
+	-- AckslD/nvim-neoclip.lua
+	-- debugloop/telescope-undo.nvim
+	-- akinsho/toggleterm.nvim
+	-- wellle/targets.vim
+
+	-- extras
+	-- stevearc/aerial.nvim
+	-- NvChad/nvim-colorizer.lua	to		echasnovski/mini.hipatterns
+	-- RRethy/vim-illuminate
 
 	{
 		"rainzm/flash-zh.nvim",
@@ -39,6 +48,21 @@ return {
 	{
 		"mhinz/vim-signify",
 	},
+
+	{
+		"TimUntersberger/neogit",
+		event = "VeryLazy",
+		dependencies = {
+			"nvim-lua/plenary.nvim",         -- required
+			"sindrets/diffview.nvim",        -- optional - Diff integration
+		},
+		opts = {
+			integrations = {
+				diffview = true,
+			},
+		},
+	},
+
 
 	-- {
 	-- 	"yamatsum/nvim-cursorline",
