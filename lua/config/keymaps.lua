@@ -22,3 +22,5 @@ map("v", "<C-v>", '"_d"+p', { desc = "Paste from clipboard" })
 map("i", "<C-v>", "<C-r>+", { desc = "Paste from clipboard" })
 map("c", "<C-v>", "<C-r>+", { desc = "Paste from clipboard" })
 map("n", "<leader>p", '"0p', { desc = "Paste last yanked text" })
+map("t", "<C-r>", [['<C-\><C-N>"'.nr2char(getchar()).'pi']], { expr = true, desc = "Paste from registers" })
+
