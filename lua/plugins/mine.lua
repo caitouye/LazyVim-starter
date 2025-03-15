@@ -63,6 +63,13 @@ return {
 		},
 	},
 
+	{
+		"saghen/blink.cmp",
+		opts = {
+			fuzzy = { prebuilt_binaries = { extra_curl_args = { "--ssl-no-revoke" } } },
+		},
+	},
+
 
 	-- {
 	-- 	"yamatsum/nvim-cursorline",
