@@ -10,7 +10,7 @@ call "%BasePath%\pynvim\Scripts\activate.bat"
 ::#--------------------------------
 
 if [%1] == [] (
-	echo Need args: branch_no [create, fvim, server, client]
+	echo Need args: branch_no [create, fvim, server, client, nvim]
 	pause
 	goto :eof
 )
@@ -45,23 +45,36 @@ if [%2] == [fvim] (
 	set Terminal=%BasePath%\fvim%Branch%\FVim.exe
 	if not exist "%Terminal%" ( set Terminal=%BasePath%\fvim1\FVim.exe )
 	set Option=--nvim
+	shift
 )
 
 
 set Port=50001
 
 if [%2] == [server] (
-	%Neovim% --headless --listen 127.0.0.1:%Port%
-	pause
+	shift
+	shift
+	call %Neovim% --headless --listen 127.0.0.1:%Port% %%1 %%2 %%3 %%4 %%5 %%6 %%7 %%8 %%9
 	goto :eof
 )
 
 if [%2] == [client] (
-	start "title" %Terminal% --server=localhost:%Port%
+	shift
+	shift
+	call start "title" %Terminal% --server=localhost:%Port% %%1 %%2 %%3 %%4 %%5 %%6 %%7 %%8 %%9
 	goto :eof
 )
 
 
-start "title" %Terminal% %Option% %Neovim%
+if [%2] == [nvim] (
+	shift
+	shift
+	call %Neovim% %%1 %%2 %%3 %%4 %%5 %%6 %%7 %%8 %%9
+	goto :eof
+)
+
+
+shift
+start "title" %Terminal% %Option% %Neovim% %1 %2 %3 %4 %5 %6 %7 %8 %9
 
 
