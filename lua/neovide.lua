@@ -1,6 +1,6 @@
 if vim.g.neovide then
 	vim.o.guifont = "霞鹜文楷等宽 GB:h14"
-	vim.g.neovide_transparency = 0.95
+	vim.g.neovide_opacity = 0.95
 	-- vim.g.neovide_profiler = true
 
 	local function set_ime(args)
