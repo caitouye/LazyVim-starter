@@ -70,6 +70,10 @@ return {
 		},
 	},
 
+	{
+		"github/copilot.vim",
+	},
+
 
 	-- {
 	-- 	"yamatsum/nvim-cursorline",
