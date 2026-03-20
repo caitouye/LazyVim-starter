@@ -68,10 +68,48 @@ return {
 		opts = {
 			fuzzy = { prebuilt_binaries = { extra_curl_args = { "--ssl-no-revoke" } } },
 		},
+		sources = {
+			per_filetype = {
+				codecompanion = { "codecompanion" },
+			}
+		},
 	},
 
 	{
 		"github/copilot.vim",
+	},
+
+	{
+		"olimorris/codecompanion.nvim",
+		version = "^19.0.0",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {
+			-- adapters = { http = { opts = { allow_insecure = true } } },
+		},
+	},
+	{
+		'MeanderingProgrammer/render-markdown.nvim',
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.nvim' },            -- if you use the mini.nvim suite
+		dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-mini/mini.icons' },        -- if you use standalone mini plugins
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
+	},
+	{
+		"HakonHarnes/img-clip.nvim",
+		opts = {
+			filetypes = {
+				codecompanion = {
+					prompt_for_file_name = false,
+					template = "[Image]($FILE_PATH)",
+					use_absolute_path = true,
+				},
+			},
+		},
 	},
 
 
